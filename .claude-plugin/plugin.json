@@ -4,5 +4,19 @@
   "description": "计划与执行分离：onset 专家组一次产出一个 phase 的 High-Level 执行计划，dreamwalking 严格按计划执行并回填实际结果",
   "author": {
     "name": "zhaoyshine"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v node >/dev/null 2>&1 || exit 0; node \"${CLAUDE_PLUGIN_ROOT}/hooks/did-onset-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "onset tracker"
+          }
+        ]
+      }
+    ]
   }
 }
