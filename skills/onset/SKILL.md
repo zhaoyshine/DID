@@ -149,7 +149,7 @@ phase 的价值不在「做了多少」，而在「尽早把事实交回专家�
 - 开放场景，挑更称手的工具
 
 最后，无论怎么选，都要考虑成本平衡，例如：
-派 subagent 去执行一个非常简单的 task，如果启动 subagent 的成本已经超过了执行 task 的成本，就不如让执行方直接处理。
+派 subagent 去执行一个非常简单的 task，如果启动 subagent 的成本已经超过了执行 task 的成本，在预计不影响执行方的首要任务（也就是执行当前计划，过长的 context 可能会让执行方降低执行质量）前提下，可以让执行方直接处理。
 
 ## 模型选择
 
@@ -161,7 +161,7 @@ phase 的价值不在「做了多少」，而在「尽早把事实交回专家�
 
 ## 计划文档路径
 
-计划文档路径（含 `{{YYYY-MM-DD}}` / `{{TOPIC}}` 占位符）：`${CLAUDE_PROJECT_DIR}/.claude/plans/{{YYYY-MM-DD}}-{{TOPIC}}.md`
+计划文档路径（含 `{{YYYY-MM-DD}}` / `{{TOPIC}}` 占位符）：`${CLAUDE_PROJECT_DIR}/.claude/DID/{{YYYY-MM-DD}}-{{TOPIC}}/doc.md`
 
 ## 计划文档格式
 

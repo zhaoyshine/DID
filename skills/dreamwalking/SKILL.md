@@ -51,7 +51,7 @@ task 需由 subagent 执行时，按计划指定：`subagent_type: <计划指定
 每个 subagent prompt 必须包含：
 - 用户偏好或禁止项的绝对路径
 - 做什么 / 怎么做 / 预期结果：摘录该 task 对应的三项；subagent 无需读 plan_file_path
-- 返回长度要求：结果超过 100 字时，要求 subagent 把结果写入 `.drafts/phase<N>-task<M>.md`（与计划文档同目录），并返回文件绝对路径；本 skill 把该路径回填进「实际结果」
+- 返回长度要求：结果超过 100 字时，要求 subagent 把结果写入与计划文档同目录的 `phase<N>-task<M>.md` 文件；此时 subagent 只返回执行状态与草稿文件绝对路径，不附额外总结；本 skill 把该路径回填进「实际结果」
 - 前置事实：该 task 的「怎么做」若引用了别的 task 的结果，把那段实际结果原文摘进 prompt；引用较多时改传 plan_file_path，让 subagent 先 grep `### [x] task`，再按需读取
 - 若传入了 plan_file_path，不允许 subagent 修改计划文档
 - 要求 subagent 返回执行状态：成功或失败
