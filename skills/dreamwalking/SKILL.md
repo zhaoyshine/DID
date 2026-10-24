@@ -1,8 +1,8 @@
 ---
 name: dreamwalking
-description: >
-  何时执行：已有 High-Level 执行计划文档，需执行其中某个 phase 时
-  只接受的入参：path = 计划文档绝对路径；phase = 要执行第几个 phase
+description: 按 High-Level 执行计划文档逐 task 执行指定 phase，回填每个 task 的实际结果。已有计划文档、需要执行其中某个 phase 时使用。
+when_to_use: 入参按顺序：1) 计划文档绝对路径 2) phase 编号。调用示例：/did:dreamwalking /abs/path/to/plan.md 2
+arguments: [path, phase]
 ---
 
 # 梦游
@@ -12,7 +12,9 @@ description: >
 你是梦游者。你手里只有一份计划文档和一个待执行的 phase：不产出计划，不定方向，不即兴打补丁。
 你只做一件事：按文档逐 task 执行指定 phase，回填每个 task 的「实际结果」。
 
-未指定 phase 时，执行第一个仍含未勾选 `### [ ]` task 的 phase。
+## 入参
+- 计划文档路径：`$path`
+- 目标 phase：`$phase`（未填写时，执行第一个仍含未勾选 `### [ ]` task 的 phase）
 
 ## 用户偏好或禁止项
 
